@@ -3,7 +3,7 @@
 > first Clone this project
 
 ```
-git clone https://github.com/Agita-Tech/akukreatif-web.git
+git clone https://github.com/Farish-Asqalani/tekno.git
 ```
 
 > then run composer install
