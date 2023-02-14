@@ -6,7 +6,7 @@
 git clone https://github.com/Farish-Asqalani/tekno.git
 ```
 
-> then run composer install
+> then run composer install `require composer installed`
 
 ```
 composer install
