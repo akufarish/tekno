@@ -15,9 +15,6 @@
             <input type="text" placeholder="Name"
                 class="border-b-2 outline-none border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
                 required id="username" name="name" >
-            <input type="text" placeholder="Username or Email Address"
-                class="border-b-2 outline-none border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500 my-4"
-                required name="email" id="email">
             <input type="password" placeholder="Password"
                 class="border-b-2 outline-none my-5 border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
                 required name="password" id="password">

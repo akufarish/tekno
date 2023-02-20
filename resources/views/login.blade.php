@@ -7,29 +7,14 @@
     <title>Login</title>
     @vite('resources/css/app.css')
 </head>
-{{-- <body>
-    <div class="register">
-        <form class="form" method="POST" action="/login">
-            <h3 class="text">Login</h3>
-            @csrf
-            <input required type="text" name="name" id="name" placeholder="name">
-            <input required type="text" name="email" id="email" placeholder="email">
-            <input required type="password" name="password" id="password" placeholder="password">
-            <button class="btn" type="submit">Register</button>
-        </form>
-    </div>
-</body> --}}
 <body class="bg-gradient-to-r bg-blue-500 from-violet-500">
     <div class="grid h-screen place-items-center">
         <form action="/login" method="POST" class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
             @csrf
             <h3 class="mb-5 text-xl">Hi, Welcome!</h3>
-            {{-- <input type="text" placeholder="Username"
+            <input type="text" placeholder="Name"
                 class="border-b-2 outline-none border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
-                required name="name" id="name" placeholder="name"> --}}
-            <input type="text" placeholder="Email Address"
-                class="border-b-2 outline-none border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500 my-5"
-                required name="email" id="email" placeholder="email">
+                required id="username" name="name" >
             <input type="password" placeholder="Password"
                 class="border-b-2 outline-none my-5 border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
                 required name="password" id="password" placeholder="password">

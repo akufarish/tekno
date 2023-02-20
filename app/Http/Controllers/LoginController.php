@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function auth(Request $request)
     {
         $user = $request->validate([
-            "email" => ["required", "email"],
+            "name" => ["required"],
             "password" => "required"
         ]);
 
@@ -36,4 +36,8 @@ class LoginController extends Controller
         return redirect("/login");
     }
 
+    public function sukses()
+    {
+        return view("home");
+    }
 }
