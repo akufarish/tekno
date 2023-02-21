@@ -2,16 +2,23 @@
 @section('container')
     <div class="h-full">
         <div class="block bg-white shadow-md p-6 mx-12 my-6">
-            <h3 class="mb-3 text-xl">Event Table</h3>
+            <h3 class="mb-3 text-xl">Stok barang</h3>
             <div class="border-b-2 mb-3"></div>
-            <div class="border-b-2 mb-5">
+            <div class="flex gap-7">
                 <a href="/barang/tambah"
-                    class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"><i
-                        class="bi bi-plus-lg"></i> Tambah Data</a>
-                <a href="/barang/exportExcel" target="_blank"
-                    class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"><i
-                        class="bi bi-plus-lg"></i> Export excel</a>
+                    class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"> 
+                    <i class="bi bi-plus-lg"></i> Tambah Data
+                </a>
+                <a href="{{ route("file_export") }}" target="_blank"
+                    class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"> 
+                    <i class="bi bi-plus-lg"></i> Export ke excel
+                </a>
+                <a href="/barang/tambah"
+                    class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"> 
+                    <i class="bi bi-plus-lg"></i> Tambah Data
+                </a>
             </div>
+            <div class="border-b-2"></div>
             <div class="flex flex-col">
                 <div class="overflow-x-hidden sm:mx-6 lg:mx-8">
                     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -25,11 +32,11 @@
                                         </th>
                                         <th
                                             class="text-sm border-2 border-gray-300 font-medium text-gray-900 px-6 py-4 text-left">
-                                            Foto
+                                            Nama Barnag
                                         </th>
                                         <th
                                             class="text-sm border-2 border-gray-300 font-medium text-gray-900 px-6 py-4 text-left">
-                                            Nama Barang
+                                            Jurusan
                                         </th>
                                         <th
                                             class="text-sm border-2 border-gray-300 font-medium text-gray-900 px-6 py-4 text-left">
@@ -54,11 +61,11 @@
                                             </td>
                                             <td
                                                 class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                <img src="{{ $barang->foto_barang }}" alt="" width="100">
+                                                {{ $barang->nama_barang }}
                                             </td>
                                             <td
                                             class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{ $barang->nama_barang }}
+                                            {{ $barang->jurusan }}
                                         </td>   
                                             <td
                                                 class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">

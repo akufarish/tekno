@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Barang;
 use Illuminate\Support\Facades\DB;
 
+use App\Exports\BarangExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
 class BarangController extends Controller
 {
     public function index()
@@ -85,4 +89,21 @@ class BarangController extends Controller
 
         return redirect("/barang");
     }
+
+    public function jurusan($jurusan)
+    {
+        $barang = DB::table("barangs")->where("jurusan", $jurusan)->get();
+        
+        return view("animasi", [
+            "barang" => $barang,
+            "title" => "Barang",
+            // "jurusan" => $jurusan,
+        ]);
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new BarangExport, "Laporan-Penghasilan-Technopark.xlsx");
+    }
+
 }

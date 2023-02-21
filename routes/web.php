@@ -31,4 +31,5 @@ Route::post("/barang/tambah", [BarangController::class, "tambah"]);
 Route::get("/barang/hapus/{barang:id}", [BarangController::class, "delete"]);
 Route::get("/barang/ubah/{barang:id}", [BarangController::class, "edit"]);
 Route::post("/barang/ubah", [BarangController::class, "update"]);
-
+Route::get("/barang/{barang:jurusan}", [BarangController::class, "jurusan"]);
+Route::get("/barang/exportExcel", [BarangController::class, "exportExcel"])->name("file_export");
