@@ -208,9 +208,13 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+    // 'aliases' => Facade::defaultAliases()->merge([
+    //     // 'ExampleClass' => App\Example\ExampleClass::class,
+    //     'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+    // ])->toArray(),
+
+    'aliases' => [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-    ])->toArray(),
+    ]
 
 ];

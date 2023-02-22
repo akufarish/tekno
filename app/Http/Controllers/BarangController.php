@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Barang;
 use Illuminate\Support\Facades\DB;
-
-use App\Exports\BarangExport;
+use App\Exports\BarangsExport;
+use App\Imports\BarangImport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Controllers\Controller;
 
 class BarangController extends Controller
 {
@@ -73,8 +72,6 @@ class BarangController extends Controller
     {
         DB::table('barangs')->where("id", $request->id)->update([
             "nama_barang" => $request->nama_barang,
-            "foto_barang" => $request->foto_barang,
-            "deskripsi_barang" => $request->deskripsi_barang,
             "stok_barang" => $request->stok_barang,
             "harga" => $request->harga,
         ]);
@@ -101,9 +98,25 @@ class BarangController extends Controller
         ]);
     }
 
-    public function exportExcel()
+    public function export()
     {
-        return Excel::download(new BarangExport, "Laporan-Penghasilan-Technopark.xlsx");
+        return Excel::download(new BarangsExport, "Laporan-Penghasilan-Technopark.xlsx");
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new BarangsExport, $request->file("file")->store("files"));
+
+        return redirect("/barang");
+    }
+
+
+     public function test()
+    {
+        $test = DB::table("barangs")->select("jurusan")->get();
+        return view("test", [
+            "test" => $test
+        ]);
     }
 
 }

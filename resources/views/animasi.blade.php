@@ -9,14 +9,16 @@
                     class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"> 
                     <i class="bi bi-plus-lg"></i> Tambah Data
                 </a>
-                <a href="{{ route("file_export") }}" target="_blank"
+                <a href="{{ route("export") }}"
                     class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"> 
                     <i class="bi bi-plus-lg"></i> Export ke excel
                 </a>
-                <a href="/barang/tambah"
-                    class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all"> 
-                    <i class="bi bi-plus-lg"></i> Tambah Data
-                </a>
+                <form action="{{ route("import") }}" method="POST">
+                    @csrf
+                    @method("PUT")
+                    <input type="file" name="file" id="file" required>
+                    <button type="submit">import</button>
+                </form>
             </div>
             <div class="border-b-2"></div>
             <div class="flex flex-col">
