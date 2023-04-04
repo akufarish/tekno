@@ -34,7 +34,7 @@
                                         </th>
                                         <th
                                             class="text-sm border-2 border-gray-300 font-medium text-gray-900 px-6 py-4 text-left">
-                                            Nama Barnag
+                                            Nama Barang
                                         </th>
                                         <th
                                             class="text-sm border-2 border-gray-300 font-medium text-gray-900 px-6 py-4 text-left">

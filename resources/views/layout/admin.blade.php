@@ -28,9 +28,9 @@
                     data-te-sidenav-menu-ref>
                     <li class="relative flex justify-center items-center">
                       <a
-                        class="flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-300 outline-none transition duration-300 ease-linear  hover:outline-none focus:bg-white/10 focus:outline-none active:bg-white/10 active:outline-none data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none"
+                        class="flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-300 outline-none transition duration-300 ease-linear  hover:outline-none focus:bg-white/10 focus:outline-none active:bg-white/10 active:outline-none data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none w-full text-center justify-center"
                         data-te-sidenav-link-ref href="/dashboard">
-                        <span>Dashboard</span>
+                        <span class="">Dashboard</span>
                       </a>
                     </li>
                     <li class="relative">
@@ -118,6 +118,15 @@
                         </li>
                       </ul>
                     </li>
+                    <li class="relative">
+                      <form action="" class="flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-300 outline-none transition duration-300 ease-linear hover:bg-white/10 hover:outline-none focus:bg-white/10 focus:outline-none active:bg-white/10 active:outline-none data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none" method="post">
+                        @csrf
+                        <span class="mr-4 [&>svg]:h-4 [&>svg]:w-4 [&>svg]:text-gray-400 dark:[&>svg]:text-gray-300">
+                          <i class="bi bi-box-arrow-left"></i>
+                        </span>
+                        <button type="submit">Logout</button>
+                      </form>
+                    </li>
                   </ul>
                 </nav>
                 <!-- Sidenav -->
@@ -145,7 +154,7 @@
                 <!-- Toggler -->
               </section>
             </div>
-            <div class="max-h-fit w-4/5 left-64 ">
+            <div class="max-h-fit w-4/5 left-60 ">
                 @yield('container')
             </div>
         </div>

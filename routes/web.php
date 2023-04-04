@@ -17,6 +17,10 @@ use Illuminate\Auth\Events\Login;
 |
 */
 
+Route::get('/', function () {
+    return redirect("/login");
+});
+
 Route::get("/register", [RegisterController::class, "index"])->middleware("guest");
 Route::post("/register", [RegisterController::class, "store"]);
 Route::get("/login", [LoginController::class, "index"])->name("login")->middleware("guest");
