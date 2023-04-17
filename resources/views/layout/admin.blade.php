@@ -11,7 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body  class="bg-slate-100">
-    <div class="h-screen relative">
+    <div class="h-screen">
         <div class="flex justify-between">
             <div class="">
                 <section
@@ -154,7 +154,7 @@
                 <!-- Toggler -->
               </section>
             </div>
-            <div class="max-h-fit w-4/5 left-60 ">
+            <div class="max-h-fit">
                 @yield('container')
             </div>
         </div>
@@ -162,6 +162,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="https://kit.fontawesome.com/675d4babd4.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('barangs', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string("nama_barang");
-            $table->unsignedBigInteger("id_jurusan");
-            $table->string("jurusan");
-            $table->string("stok_barang");
-            $table->string("harga");
+            $table->string("qty");
+            $table->string("satuan");
+            $table->string("harga_modal");
+            $table->string("total_modal");
+            $table->string("harga_jual");
+            $table->string("laba");
             $table->timestamps();
         });
     }

@@ -9,9 +9,9 @@
     <input type="text" placeholder="harga"
         class="border-b-2 outline-none my-5 border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
         required name="harga" id="harga">
-    <input type="text" placeholder="deskripsi_barang"
+    <input type="text" placeholder="jurusan"
         class="border-b-2 outline-none my-5 border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
-        required name="deskripsi_barang" id="deskripsi_barang">
+        required name="jurusan" id="jurusan">
     <input type="text" placeholder="stok_barang"
         class="border-b-2 outline-none my-5 border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
         required name="stok_barang" id="stok_barang">

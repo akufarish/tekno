@@ -7,10 +7,21 @@ use App\Models\Barang;
 use Illuminate\Support\Facades\DB;
 use App\Exports\BarangsExport;
 use App\Imports\BarangImport;
+use App\Imports\BarangsImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class BarangController extends Controller
 {
+
+    public function all()
+    {
+        $barang = Barang::all();
+        return view("barang", [
+            "barang" => $barang,
+            "title" => "semua barang"
+        ]);
+    }
+
     public function index()
     {
         $barang = Barang::all();
@@ -49,8 +60,7 @@ class BarangController extends Controller
 
         DB::table('barangs')->insert([
             "nama_barang" => $request->nama_barang,
-            "foto_barang" => $request->foto_barang,
-            "deskripsi_barang" => $request->deskripsi_barang,
+            "jurusan" => $request->jurusan,
             "stok_barang" => $request->stok_barang,
             "harga" => $request->harga,
         ]);
@@ -91,7 +101,7 @@ class BarangController extends Controller
     {
         $barang = DB::table("barangs")->where("jurusan", $jurusan)->get();
         
-        return view("animasi", [
+        return view("barang", [
             "barang" => $barang,
             "title" => "Barang",
             // "jurusan" => $jurusan,
@@ -105,9 +115,9 @@ class BarangController extends Controller
 
     public function import(Request $request)
     {
-        Excel::import(new BarangsExport, $request->file("file")->store("files"));
-
-        return redirect("/barang");
+        Excel::import(new BarangsImport, $request->file("file"));
+        // dd($request->file("file"));
+        return redirect("/dashboard");
     }
 
 

@@ -3,6 +3,15 @@
 <div class=" h-full">
     <h3 class="pt-5 font-serif text-xl">Dashboard</h3>
     <div class="grid lg:grid-cols-4 gap-3">
+        <a href="{{ route("all") }}" class="flex justify-center mt-6">
+            <div class="block p-6 bg-white rounded-lg shadow-lg max-w-sm border-l-[5px] border-l-orange-500 w-72 hover:border-l-orange-600 duration-500 transition-all cursor-pointer hover:opacity-90">
+                <div class="flex flex-row-reverse justify-between">
+                    <span class="bg-orange-200 hover:bg-orange-300 duration-500 transition-all px-4 py-3 rounded-full my-5 ">
+                        <i class="bi bi-hospital text-orange-500 hover:text-orange-600 duration-500 transition-all text-xl"></i>
+                    </span>
+                    <p class="flex items-center mr-5">Keperawatan sosial</p>
+            </div>
+        </div>
         <a href="/barang/PEKSOS" class="flex justify-center mt-6">
             <div class="block p-6 bg-white rounded-lg shadow-lg max-w-sm border-l-[5px] border-l-orange-500 w-72 hover:border-l-orange-600 duration-500 transition-all cursor-pointer hover:opacity-90">
                 <div class="flex flex-row-reverse justify-between">

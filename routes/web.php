@@ -21,6 +21,7 @@ Route::get('/', function () {
     return redirect("/login");
 });
 
+Route::get("/semua-barang", [BarangController::class, "all"])->name("all");
 Route::get("/register", [RegisterController::class, "index"])->middleware("guest");
 Route::post("/register", [RegisterController::class, "store"]);
 Route::get("/login", [LoginController::class, "index"])->name("login")->middleware("guest");
@@ -37,5 +38,5 @@ Route::get("/barang/ubah/{barang:id}", [BarangController::class, "edit"]);
 Route::post("/barang/ubah", [BarangController::class, "update"]);
 Route::get("/barang/{barang:jurusan}", [BarangController::class, "jurusan"])->name("");
 Route::get('/export', [BarangController::class, 'export'])->name("export");
-Route::post('import', [BarangController::class, 'import'])->name("import");
+Route::post('/barang-import', [BarangController::class, 'import'])->name("import");
 Route::get('/test', [BarangController::class, "test"])->name('test');

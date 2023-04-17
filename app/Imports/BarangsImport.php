@@ -4,20 +4,21 @@ namespace App\Imports;
 
 use App\Models\Barang;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use App\Imports\SheetPertama;
+use App\Imports\SheetKedua;
 
-class BarangsImport implements ToModel
+class BarangsImport implements WithCalculatedFormulas, WithMultipleSheets
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public function model(array $row)
+    public function sheets(): array
     {
-        return new Barang([
-            "nama_barang" => $row[0],
-            "stok_barang" => $row[1],
-            "harga" => $row[2],
-        ]);
+        return [
+            "TJKT" => new SheetPertama(),
+            "DI" => new SheetKedua(),
+            "ANM" => new SheetKetiga(),
+        ];
     }
+
 }
