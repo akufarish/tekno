@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BarangController;
 use Illuminate\Auth\Events\Login;
+use App\Http\Middleware\IsAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +22,16 @@ Route::get('/', function () {
     return redirect("/login");
 });
 
-Route::get("/semua-barang", [BarangController::class, "all"])->name("all");
+Route::get("user", [LoginController::class, "sukses"]);
+Route::get("/admin", [LoginController::class, "admin"])->middleware("admin");
+Route::get("/dashboard", [BarangController::class, "index"])->middleware("admin");
 Route::get("/register", [RegisterController::class, "index"])->middleware("guest");
 Route::post("/register", [RegisterController::class, "store"]);
 Route::get("/login", [LoginController::class, "index"])->name("login")->middleware("guest");
 Route::post('/login', [LoginController::class, "auth"]);
 Route::post('logout', [LoginController::class, "logout"]);
-Route::get("/dashboard", [BarangController::class, "index"]);
+Route::get("/semua-barang", [BarangController::class, "all"])->name("all")->middleware(["auth", "admin"]);
 Route::get("/dashboard/{barang:id}", [BarangController::class, "show"]);
-Route::get("/home", [LoginController::class, "sukses"]);
 Route::get("/barang", [BarangController::class, "barang"]);
 Route::get("/barang/tambah", [BarangController::class, "page"]);
 Route::post("/barang/tambah", [BarangController::class, "tambah"]);

@@ -9,10 +9,8 @@ use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
-use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Arabic;
 
 class SheetKedua implements WithHeadingRow, ToModel, WithCalculatedFormulas, SkipsOnError
 {   

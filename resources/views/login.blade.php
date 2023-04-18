@@ -14,10 +14,10 @@
             <h3 class="mb-5 text-xl">Hi, Welcome!</h3>
             <input type="text" placeholder="Name"
                 class="border-b-2 outline-none border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
-                required id="username" name="name" >
+                 id="username" name="name" >
             <input type="password" placeholder="Password"
                 class="border-b-2 outline-none my-5 border-b-blue-400 block duration-500 w-full px-3 py-2 focus:outline-none focus:duration-500 focus:border-b-red-500"
-                required name="password" id="password" placeholder="password">
+                 name="password" id="password" placeholder="password">
             <div class="mb-4 flex justify-between  text-gray-500">
                 <div>
                     <input type="checkbox" name="remember" id="remember" class="">

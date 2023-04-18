@@ -7,9 +7,16 @@ use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
 
-class SheetPertama implements ToModel, WithHeadingRow, WithCalculatedFormulas, SkipsEmptyRows
+class SheetPertama implements ToModel, WithHeadingRow, WithCalculatedFormulas, SkipsEmptyRows, SkipsOnError
 {
+
+    use Importable, SkipsErrors;
+
+
         /**
     * @param array $row
     *
@@ -18,6 +25,11 @@ class SheetPertama implements ToModel, WithHeadingRow, WithCalculatedFormulas, S
 
     public function model(array $row)
     {
+
+        if(!array_filter($row)) {
+            return null;
+         } 
+
         return new Barang([
             "nama_barang" => $row["nama_barang"],
             "qty" => $row["qty"],

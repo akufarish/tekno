@@ -119,13 +119,13 @@
                       </ul>
                     </li>
                     <li class="relative">
-                      <form action="" class="flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-300 outline-none transition duration-300 ease-linear hover:bg-white/10 hover:outline-none focus:bg-white/10 focus:outline-none active:bg-white/10 active:outline-none data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none" method="post">
+                      <form action="/logout" method="POST" class="flex h-12 cursor-pointer items-center truncate rounded-[5px] py-4 px-6 text-[0.875rem] text-gray-300 outline-none transition duration-300 ease-linear hover:bg-white/10 hover:outline-none focus:bg-white/10 focus:outline-none active:bg-white/10 active:outline-none data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none">
                         @csrf
                         <span class="mr-4 [&>svg]:h-4 [&>svg]:w-4 [&>svg]:text-gray-400 dark:[&>svg]:text-gray-300">
                           <i class="bi bi-box-arrow-left"></i>
                         </span>
-                        <button type="submit">Logout</button>
-                      </form>
+                        <button class="btn btn-danger">Logout</button>
+                    </form>
                     </li>
                   </ul>
                 </nav>

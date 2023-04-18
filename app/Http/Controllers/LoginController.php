@@ -19,12 +19,27 @@ class LoginController extends Controller
             "password" => "required"
         ]);
 
+        // $name = $request->input("name");
+        // $password = $request->input("password");
+
+        // if(empty($name) || empty($password)) {
+        //     return response()->view("login", [
+        //         "title" => "login",
+        //         "error" => "username dan password tidak boleh kosong"
+        //     ]);
+        // }
+
         if (Auth::attempt($user)) {
             $request->session()->regenerate();
-            return redirect()->intended("/home");
+            return redirect()->intended("/dashboard");
         }
 
         return back()->with("Error", "gagal");
+
+        // return response()->view("login", [
+        //     "title" => "login",
+        //     "error" => "kamu bukan admin"
+        // ]);
     }
 
     public function logout(Request $request)
@@ -38,6 +53,11 @@ class LoginController extends Controller
 
     public function sukses()
     {
-        return view("home");
+        return view("user");
+    }
+
+    public function admin()
+    {
+        return view("admin");
     }
 }

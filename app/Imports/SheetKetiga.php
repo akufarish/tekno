@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
+
 class SheetKetiga implements WithHeadingRow, ToModel, WithCalculatedFormulas, SkipsOnError
 {
 
@@ -29,7 +30,7 @@ class SheetKetiga implements WithHeadingRow, ToModel, WithCalculatedFormulas, Sk
             "satuan" => $row["satuan"],
             "harga_modal" => $row["harga_modal"],
             "total_modal" => $row["harga_modal"],
-            "harga_jual" => $row["total_jual"],
+            "harga_jual" => $row["harga_jual"],
             "laba" => $row["laba"],
         ]);
     }
