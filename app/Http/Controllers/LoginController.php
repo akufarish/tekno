@@ -50,14 +50,4 @@ class LoginController extends Controller
         request()->session()->regenerateToken();
         return redirect("/login");
     }
-
-    public function sukses()
-    {
-        return view("user");
-    }
-
-    public function admin()
-    {
-        return view("admin");
-    }
 }

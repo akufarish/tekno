@@ -19,12 +19,13 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        if(Auth::user() &&  Auth::user()->admin == true) {
+        if(Auth::user() && Auth::user()->admin == true || Auth::user()->isAdmin == "admin") {
             return $next($request);
         } else {
             // return redirect("/user");
-            return $next($request);
-            // abort(404);
+            // return $next($request);
+            abort(404);
+            // return redirect("/login");
         }
     }
 }

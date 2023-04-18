@@ -22,8 +22,6 @@ Route::get('/', function () {
     return redirect("/login");
 });
 
-Route::get("user", [LoginController::class, "sukses"]);
-Route::get("/admin", [LoginController::class, "admin"])->middleware("admin");
 Route::get("/dashboard", [BarangController::class, "index"])->middleware("admin");
 Route::get("/register", [RegisterController::class, "index"])->middleware("guest");
 Route::post("/register", [RegisterController::class, "store"]);

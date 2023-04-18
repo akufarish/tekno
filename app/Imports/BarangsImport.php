@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use App\Imports\SheetPertama;
 use App\Imports\SheetKedua;
+use App\Imports\SheetKetiga;
 
 class BarangsImport implements WithCalculatedFormulas, WithMultipleSheets
 {

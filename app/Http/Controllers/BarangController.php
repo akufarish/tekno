@@ -117,7 +117,7 @@ class BarangController extends Controller
     {
         Excel::import(new BarangsImport, $request->file("file"));
         // dd($request->file("file"));
-        return redirect("/dashboard");
+        return redirect("/semua-barang");
     }
 
 

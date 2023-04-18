@@ -16,9 +16,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            "name" => "admin",
+            "name" => "farish",
             "admin" => true,
-            "password" => "admin"
+            "isAdmin" => "admin",
+            "password" => "farish"
         ]);
     }
 }
