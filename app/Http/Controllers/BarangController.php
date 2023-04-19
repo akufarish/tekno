@@ -15,7 +15,7 @@ class BarangController extends Controller
 
     public function all()
     {
-        $barang = Barang::all();
+        $barang = DB::table("barangs")->paginate(15);
         return view("barang", [
             "barang" => $barang,
             "title" => "semua barang"
@@ -60,12 +60,14 @@ class BarangController extends Controller
 
         DB::table('barangs')->insert([
             "nama_barang" => $request->nama_barang,
-            "jurusan" => $request->jurusan,
-            "stok_barang" => $request->stok_barang,
-            "harga" => $request->harga,
+            "qty" => $request->qty,
+            "satuan" => $request->satuan,
+            "harga_jual" => $request->harga_jual,
+            "total_modal" => $request->total_modal,
+            "laba" => $request->laba,
         ]);
         
-        return redirect("/barang")->with("success", "berhasil");
+        return redirect("/semua-barang")->with("message", "data berhasil ditambahkan");
     }
 
     public function edit($id)
@@ -82,11 +84,14 @@ class BarangController extends Controller
     {
         DB::table('barangs')->where("id", $request->id)->update([
             "nama_barang" => $request->nama_barang,
-            "stok_barang" => $request->stok_barang,
-            "harga" => $request->harga,
+            "qty" => $request->qty,
+            "satuan" => $request->satuan,
+            "harga_jual" => $request->harga_jual,
+            "total_modal" => $request->total_modal,
+            "laba" => $request->laba,
         ]);
 
-        return redirect("/barang");
+        return redirect("/semua-barang")->with("message", "data berhasil diubah");
     }
 
 

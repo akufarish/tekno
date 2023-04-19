@@ -154,7 +154,7 @@
                 <!-- Toggler -->
               </section>
             </div>
-            <div class="max-h-fit">
+            <div class="max-h-fit ">
                 @yield('container')
             </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
@@ -23,7 +24,8 @@ class RegisterController extends Controller
         $validasi["password"] = Hash::make($validasi["password"]);
 
         User::create($validasi);
-        return redirect("/login")->with("success", "berhasil");
+        Session::flash("error", "akun sudah terdaftar");
+        return redirect("/login")->with("message", "register berhasil");
     }
 
 }

@@ -21,8 +21,11 @@ class BarangsExport implements WithMultipleSheets
     {
         $sheets = [
             "TJKT" => new TkjExport(),
-            "ANM" => new TkjExport(),
             "DI" => new TkjExport(),
+            "TF" => new TkjExport(),
+            "ANM" => new TkjExport(),
+            "KI" => new TkjExport(),
+            "DKV" => new TkjExport(),
         ];
 
         return $sheets;

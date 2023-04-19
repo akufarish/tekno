@@ -3,33 +3,34 @@
 namespace App\Imports;
 
 use App\Models\Barang;
-use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Maatwebsite\Excel\Concerns\Importable;
-use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
-class SheetPertama implements ToModel, WithHeadingRow, WithCalculatedFormulas, SkipsEmptyRows, SkipsOnError
+class SheetKeenam implements WithHeadingRow, ToModel, WithCalculatedFormulas, SkipsEmptyRows, SkipsOnError
 {
 
     use Importable, SkipsErrors;
-        /**
+
+    /**
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
-
     public function model(array $row)
     {
-
         if(!array_filter($row)) {
             return null;
          } 
 
         return new Barang([
             "nama_barang" => $row["nama_barang"],
+            // "tanggal" => $row["tanggal"],
             "qty" => $row["qty"],
             "satuan" => $row["satuan"],
             "harga_modal" => $row["harga_modal"],
@@ -38,4 +39,6 @@ class SheetPertama implements ToModel, WithHeadingRow, WithCalculatedFormulas, S
             "laba" => $row["laba"],
         ]);
     }
+
+
 }

@@ -19,6 +19,13 @@
                         <button type="submit" class="py-2 px-2 rounded-md mb-3 bg-green-400 text-white hover:bg-green-500 duration-500 transition-all">import</button>
                     </form>
                 </div>
+                @if(Illuminate\Support\Facades\Session::has("message"))
+                <div
+                class="mb-4 rounded-lg bg-green-400 px-6 py-5 text-base text-green-700"
+                role="alert">
+                {{ Illuminate\Support\Facades\Session::get("message") }}
+              </div>
+                @endif   
                 <table class="border w-fit">
                     <thead class="bg-white">
                         <tr>
@@ -64,7 +71,7 @@
                         @php
                             $i = 1
                         @endphp
-                        @foreach ($barang as $barang)
+                        @foreach ($barang as $barangs)
                             <tr class="odd:bg-gray-100 border-b">
                                 <td
                                     class="px-6 border-2 border-gray-300 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -72,40 +79,40 @@
                                 </td>
                                 <td
                                 class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $barang->nama_barang }}
+                                {{ $barangs->nama_barang }}
                             </td>   
                                 <td
                                     class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    {{ $barang->qty }}
+                                    {{ $barangs->qty }}
                                 </td>
                                 <td
                                     class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    {{ $barang->satuan }}
+                                    {{ $barangs->satuan }}
                                 </td>
                                 <td
                                     class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    Rp.{{ $barang->harga_modal }}
+                                    Rp.{{ $barangs->harga_modal }}
                                 </td>
                                 <td
                                     class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    Rp.{{ $barang->total_modal }}
+                                    Rp.{{ $barangs->total_modal }}
                                 </td>
                                 <td
                                     class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    Rp.{{ $barang->harga_jual }}
+                                    Rp.{{ $barangs->harga_jual }}
                                 </td>
                                 <td
                                     class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    Rp.{{ $barang->laba }}
+                                    Rp.{{ $barangs->laba }}
                                 </td>
                                 <td
                                     class="text-sm border-2 border-gray-300 text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                     <div class="flex justify-center gap-2">
-                                        <a href="/barang/ubah/{{ $barang->id }}"
+                                        <a href="/barang/ubah/{{ $barangs->id }}"
                                             class="px-3 py-2 rounded-md text-white bg-green-400 hover:bg-green-500 duration-500 transition-all">
                                             <i class="bi bi-pencil-square"></i> Edit
                                         </a>
-                                        <a href="/barang/hapus/{{ $barang->id }}"
+                                        <a href="/barang/hapus/{{ $barangs->id }}"
                                             class="px-3 py-2 rounded-md text-white bg-red-500 hover:bg-red-600 duration-500 transition-all">
                                             <i class="bi bi-x-lg"></i> Delete
                                         </a>
@@ -115,6 +122,8 @@
                         @endforeach
                     </tbody>
                 </table>
+                <br>
+                {{ $barang->links() }}
             </div>
         </div>
     </div>

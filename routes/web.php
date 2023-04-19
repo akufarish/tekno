@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get("/dashboard", [BarangController::class, "index"])->middleware("admin");
-Route::get("/register", [RegisterController::class, "index"])->middleware("guest");
+Route::get("/register", [RegisterController::class, "index"]);
 Route::post("/register", [RegisterController::class, "store"]);
 Route::get("/login", [LoginController::class, "index"])->name("login")->middleware("guest");
 Route::post('/login', [LoginController::class, "auth"]);

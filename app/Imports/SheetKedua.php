@@ -11,8 +11,9 @@ use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
+use Maatwebsite\Excel\Concerns\WithValidation;
 
-class SheetKedua implements WithHeadingRow, ToModel, WithCalculatedFormulas, SkipsOnError
+class SheetKedua implements WithHeadingRow, ToModel, WithCalculatedFormulas, SkipsEmptyRows
 {   
 
     use Importable, SkipsErrors;
@@ -40,4 +41,5 @@ class SheetKedua implements WithHeadingRow, ToModel, WithCalculatedFormulas, Ski
             "laba" => $row["laba"],
         ]);
     }
+
 }

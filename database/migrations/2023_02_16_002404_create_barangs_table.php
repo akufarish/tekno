@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string("nama_barang");
-            $table->string("qty");
-            $table->string("satuan");
-            $table->string("harga_modal");
-            $table->string("total_modal");
-            $table->string("harga_jual");
-            $table->string("laba");
+            $table->string("nama_barang")->nullable();
+            $table->string("tanggal")->nullable();
+            $table->string("qty")->nullable();
+            $table->string("satuan")->nullable();
+            $table->string("harga_modal")->nullable();
+            $table->string("total_modal")->nullable();
+            $table->string("harga_jual")->nullable();
+            $table->string("laba")->nullable();
             $table->timestamps();
         });
     }

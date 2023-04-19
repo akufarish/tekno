@@ -10,6 +10,8 @@ use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use App\Imports\SheetPertama;
 use App\Imports\SheetKedua;
 use App\Imports\SheetKetiga;
+use App\Imports\SheetKempat;
+use App\Imports\SheetKelima;
 
 class BarangsImport implements WithCalculatedFormulas, WithMultipleSheets
 {
@@ -18,7 +20,10 @@ class BarangsImport implements WithCalculatedFormulas, WithMultipleSheets
         return [
             "TJKT" => new SheetPertama(),
             "DI" => new SheetKedua(),
-            "ANM" => new SheetKetiga(),
+            "TF" => new SheetKetiga(),
+            "ANM" => new SheetKempat(),
+            "KI" => new SheetKelima(),
+            "DKV" => new SheetKeenam(),
         ];
     }
 

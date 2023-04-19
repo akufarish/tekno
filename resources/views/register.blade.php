@@ -9,6 +9,22 @@
 </head>
 <body class="bg-gradient-to-r overflow-hidden bg-blue-500 from-violet-500">
     <div class="grid h-screen place-items-center">
+        @if(Illuminate\Support\Facades\Session::has("message"))
+        <div
+        class="mb-4 rounded-lg bg-green-400 px-6 py-5 text-base text-green-700"
+        role="alert">
+        {{ Illuminate\Support\Facades\Session::get("message") }}
+      </div>
+        @endif
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div
+            class="mb-4 rounded-lg bg-red-300 px-6 py-5 text-base text-red-700"
+            role="alert">
+            {{ $error }}
+          </div>
+        @endforeach
+    @endif
         <form method="POST" action="/register" class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
             @csrf
             <h3 class="mb-5 text-xl">Hi, Welcome!</h3>
